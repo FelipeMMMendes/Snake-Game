@@ -51,14 +51,15 @@ while jogoAtivo:
     time.sleep(0.1)
 
     #percorre as partes do corpo da cobra, do ultimo ao primeiro
-    for num_parte in range(len(segmentosCobra)-1,0,1):
+    for num_parte in range(len(segmentosCobra) - 1,0,-1):
         #armazena os valores de X e Y da parte que esta depois da que o loop se encontra
         novoX = segmentosCobra[num_parte-1].xcor()
         novoY = segmentosCobra[num_parte-1].ycor()
 
         #manda o segmento atual ir para a posicao do proximo
-        #segmentosCobra[num_parte].goto(novoX,novoY)
-    #segmentosCobra[0].forward(20)
+        segmentosCobra[num_parte].goto(novoX,novoY)
+    segmentosCobra[0].forward(20)
+    segmentosCobra[0].left(90)
 
 
 #faz com que a tela desapareca ao clicar
