@@ -33,7 +33,15 @@ while jogoAtivo:
     time.sleep(0.1)
 
     #usa o metodo para mover a cobrinha
-    cobra.moverCobra()
+    cobra.moverCobraFrente()
+
+    #metodo para receber inputs do teclado
+    screen.listen()
+    
+    screen.onkey(cobra.cima,'Up')
+    screen.onkey(cobra.baixo,'Down')
+    screen.onkey(cobra.esquerda,'Left')
+    screen.onkey(cobra.direita,'Right')
 
     
 #faz com que a tela desapareca ao clicar
