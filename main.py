@@ -2,6 +2,7 @@
 from turtle import Screen
 from snake import Snake
 from food import Food
+from scoreboard import ScoreBoard
 import time
 
 #instancia um objeto da classe Screen
@@ -18,6 +19,9 @@ screen.title("Jogo da cobrinha")
 
 #desliga as animacoes da cobrinha
 screen.tracer(0)
+
+#instancia um objeto da classe ScoreBoard para servir de placar
+placar = ScoreBoard()
 
 #instancia um objeto da classe Snake
 cobra = Snake()
@@ -45,6 +49,8 @@ while jogoAtivo:
     time.sleep(0.1)
     #usa o metodo para mover a cobrinha
     cobra.moverCobraFrente()
+
+    placar.escrever()
 
     #detectar colisao com a comida
     #distance checa a distancia entre um objeto turtle e outro
