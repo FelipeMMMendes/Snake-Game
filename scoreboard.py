@@ -24,6 +24,11 @@ class ScoreBoard(Turtle):
         #escreve na tela a pontuacao
         self.write(f"Pontuacao: {self.pontuacao} ",align='center',font=('bahnschrift', 10, 'normal'))
 
+    def gameOver(self):
+        #coloca um cursos para ir para o centro da tela
+        self.goto(0,0)
+        self.write("GAME OVER",align='center',font=('bahnschrift', 25, 'normal'))
+
     def aumentarPontuacao(self):
         #aumenta a pontuacao em 1
         self.pontuacao += 1

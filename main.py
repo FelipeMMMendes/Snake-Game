@@ -55,5 +55,11 @@ while jogoAtivo:
         comida.resetar()
         placar.aumentarPontuacao()
 
+
+    #detectar colisao com a parede
+    if cobra.cabeca.xcor() > 280 or cobra.cabeca.xcor() < -280 or cobra.cabeca.ycor() > 280 or cobra.cabeca.ycor() < -280:
+        jogoAtivo = False
+        placar.gameOver()   
+
 #faz com que a tela desapareca ao clicar
 screen.exitonclick()
