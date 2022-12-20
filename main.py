@@ -40,7 +40,6 @@ screen.onkey(cobra.direita,'Right')
 
 #variavel flag para controlar o status do jogo
 jogoAtivo = True
-
 #loop while para manter o jogo ativo
 while jogoAtivo:
     #liga as animacoes da cobrinha para atualizar a tela
@@ -49,9 +48,6 @@ while jogoAtivo:
     time.sleep(0.1)
     #usa o metodo para mover a cobrinha
     cobra.moverCobraFrente()
-    #usa o metodo para escrever o placar
-    placar.escrever()
-
     #detectar colisao com a comida
     #distance checa a distancia entre um objeto turtle e outro
     #se a distancia entre a cabeca da cobra e a comida for menor que 15, certeza que houve colisao

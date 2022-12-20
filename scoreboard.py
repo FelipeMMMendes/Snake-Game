@@ -7,24 +7,27 @@ class ScoreBoard(Turtle):
     def __init__(self):
         #chama o metodo construtor da superclasse quando o construtor dessa classe for chamado
         super().__init__()
-        self.placar = Turtle()
         #esconde a tartaruga
-        self.placar.hideturtle()
+        self.hideturtle()
         #faz com que a tartaruga nao deixe uma linha ao se mover
-        self.placar.penup()
+        self.penup()
         #coloca a cor para branco
-        self.placar.color('white')
+        self.color('white')
+        #joga a cobra para a posicao correta para escrever o score
+        self.goto(0,280)
         #variavel auxiliar para armazenar o score
         self.pontuacao = 0
         #chama o metodo para colocar na tela a pontuacao
         self.escrever()
         
     def escrever(self):
-        #joga a cobra para a posicao correta para escrever o score
-        self.placar.goto(0,285)
         #escreve na tela a pontuacao
-        self.placar.write(f"Pontuacao: {self.pontuacao} ",True,align='center',font=('bahnschrift', 10, 'normal'))
+        self.write(f"Pontuacao: {self.pontuacao} ",align='center',font=('bahnschrift', 10, 'normal'))
 
     def aumentarPontuacao(self):
-        self.placar.clear()
-        self.pontuacao += 1        
+        #aumenta a pontuacao em 1
+        self.pontuacao += 1
+        #limpa o que a tartaruga tinha escrito antes
+        self.clear()
+        #escreve novamente
+        self.escrever()      
