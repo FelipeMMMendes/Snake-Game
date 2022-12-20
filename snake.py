@@ -23,22 +23,29 @@ class Snake():
         self.cabeca = self.segmentosCobra[0] 
 
     def criarCobra(self):
-
         #loop para instanciar o resto da cobra
         for pos in posicoesIniciais:
-            #instancia um objeto do tipo turtle
-            cobra = Turtle(shape='square')
-            #faz com que a cobra não deixe uma linha ao se mover
-            cobra.penup()
+            self.adicionarSegmento(pos)
 
-            #muda a cor dela
-            cobra.color('green')
+    #funcao para adicionar um segmento na cobra
+    def adicionarSegmento(self,pos):
+        #instancia um objeto do tipo turtle
+        cobra = Turtle(shape='square')
+        #faz com que a cobra não deixe uma linha ao se mover
+        cobra.penup()
+        #muda a cor dela
+        cobra.color('green')
+        #estende o corpo da cobra
+        cobra.setposition(pos)
+        #adiciona o pedaco do corpo na lista
+        self.segmentosCobra.append(cobra)    
+            
+    #funcao para aumentar o tamanho da cobra
+    def extenderCobra(self):
+        #pega a posicao do ultimo segmento e acrescenta mais uma parte a partir dele
+        self.adicionarSegmento(self.segmentosCobra[-1].position())
 
-            #estende o corpo da cobra
-            cobra.setposition(pos)
 
-            #adiciona o pedaco do corpo na lista
-            self.segmentosCobra.append(cobra)    
 
 
     def moverCobraFrente(self):

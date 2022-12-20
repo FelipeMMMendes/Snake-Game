@@ -54,12 +54,23 @@ while jogoAtivo:
     if cobra.cabeca.distance(comida) < 15:
         comida.resetar()
         placar.aumentarPontuacao()
+        cobra.extenderCobra()
 
 
     #detectar colisao com a parede
-    if cobra.cabeca.xcor() > 280 or cobra.cabeca.xcor() < -280 or cobra.cabeca.ycor() > 280 or cobra.cabeca.ycor() < -280:
+    if cobra.cabeca.xcor() > 285 or cobra.cabeca.xcor() < -285 or cobra.cabeca.ycor() > 285 or cobra.cabeca.ycor() < -285:
         jogoAtivo = False
-        placar.gameOver()   
+        placar.gameOver() 
+
+    #detectar colisao com qualquer outro segmento da cobra
+    for segmento in cobra.segmentosCobra:
+        #se o segmento atual for a cabeca, so passa
+        if segmento == cobra.cabeca:
+            pass
+        elif cobra.cabeca.distance(segmento) < 10:
+            jogoAtivo = False
+            placar.gameOver()
+
 
 #faz com que a tela desapareca ao clicar
 screen.exitonclick()
