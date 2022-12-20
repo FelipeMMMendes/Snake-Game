@@ -62,12 +62,9 @@ while jogoAtivo:
         jogoAtivo = False
         placar.gameOver() 
 
-    #detectar colisao com qualquer outro segmento da cobra
-    for segmento in cobra.segmentosCobra:
-        #se o segmento atual for a cabeca, so passa
-        if segmento == cobra.cabeca:
-            pass
-        elif cobra.cabeca.distance(segmento) < 10:
+    #detectar colisao com qualquer outro segmento da cobra (ignorando a cabeca)
+    for segmento in cobra.segmentosCobra[1:]:
+        if cobra.cabeca.distance(segmento) < 10:
             jogoAtivo = False
             placar.gameOver()
 
