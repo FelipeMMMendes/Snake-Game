@@ -49,7 +49,7 @@ while jogoAtivo:
     time.sleep(0.1)
     #usa o metodo para mover a cobrinha
     cobra.moverCobraFrente()
-
+    #usa o metodo para escrever o placar
     placar.escrever()
 
     #detectar colisao com a comida
@@ -57,10 +57,7 @@ while jogoAtivo:
     #se a distancia entre a cabeca da cobra e a comida for menor que 15, certeza que houve colisao
     if cobra.cabeca.distance(comida) < 15:
         comida.resetar()
+        placar.aumentarPontuacao()
 
-
-    
- 
-   
 #faz com que a tela desapareca ao clicar
 screen.exitonclick()
